@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hari Pandya — Developer &amp; Designer</title>
+  <meta name="description" content="Hari Pandya — full-stack developer and designer building fast, accessible and beautiful digital experiences. Based in India, working worldwide." />
+  <meta name="theme-color" content="#08080c" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Hari Pandya — Developer &amp; Designer" />
+  <meta property="og:description" content="Full-stack developer & designer crafting fast, accessible and beautiful digital experiences." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://haripandya.com" />
+  <meta property="og:image" content="https://haripandya.com/assets/hari-pandya.jpg" />
+  <meta property="og:image:alt" content="Portrait of Hari Pandya" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://haripandya.com/assets/hari-pandya.jpg" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%238b5cf6'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='46' font-weight='bold' fill='white' text-anchor='middle'%3EHP%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="logo" aria-label="Hari Pandya — home">
+        <span class="logo-mark">HP</span>
+        <span class="logo-text">haripandya<span class="logo-dot">.com</span></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Main navigation">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch theme" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2" />
+            <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6" />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7Z" />
+          </svg>
+        </button>
+
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="orb orb-1"></span>
+        <span class="orb orb-2"></span>
+        <span class="orb orb-3"></span>
+        <span class="grid-lines"></span>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="pill"><span class="dot"></span> Available for freelance work</p>
+
+          <h1>
+            Hi, I'm <span class="grad">Hari&nbsp;Pandya</span>.<br />
+            I build things<br class="br-mobile" /> for the web.
+          </h1>
+
+          <p class="lead">
+            Full-stack developer &amp; designer crafting fast, accessible and beautiful
+            digital experiences — from first sketch to live launch.
+          </p>
+
+          <div class="cta">
+            <a href="#work" class="btn btn-primary">
+              View my work
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-ghost">Let's talk</a>
+          </div>
+
+          <ul class="socials" aria-label="Social links">
+            <li>
+              <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49v-1.72c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.36 1.12 2.94.85.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.3 9.3 0 0 1 2.5-.34c.85 0 1.71.12 2.5.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.25 10.25 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6.5 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.8c0-1.38-.03-3.16-1.95-3.16-1.95 0-2.25 1.5-2.25 3.06V21h-4V9Z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X (Twitter)">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.7 3h3.3l-7.2 8.2L22.2 21h-6.6l-5.2-6.7L4.4 21H1.1l7.7-8.8L1.1 3h6.8l4.7 6.1L17.7 3Zm-1.2 16.1h1.8L7.6 4.8H5.7l10.8 14.3Z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:pandyaherry11@gmail.com" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="orbit">
+            <span class="ring ring-1" aria-hidden="true"></span>
+            <span class="ring ring-2" aria-hidden="true"></span>
+            <span class="ring ring-3" aria-hidden="true"></span>
+
+            <figure class="portrait">
+              <img
+                src="assets/hari-pandya.jpg"
+                srcset="assets/hari-pandya-720.jpg 720w, assets/hari-pandya.jpg 1024w"
+                sizes="(max-width: 980px) 240px, 260px"
+                alt="Hari Pandya"
+                width="1024"
+                height="1536"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </figure>
+
+            <span class="chip chip-1" aria-hidden="true">React</span>
+            <span class="chip chip-2" aria-hidden="true">UI / UX</span>
+            <span class="chip chip-3" aria-hidden="true">Node.js</span>
+            <span class="chip chip-4" aria-hidden="true">TypeScript</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>TypeScript</span><span>·</span><span>React</span><span>·</span><span>Next.js</span><span>·</span><span>Node.js</span><span>·</span><span>PostgreSQL</span><span>·</span><span>Figma</span><span>·</span><span>Tailwind CSS</span><span>·</span><span>UI/UX</span><span>·</span>
+          <span>TypeScript</span><span>·</span><span>React</span><span>·</span><span>Next.js</span><span>·</span><span>Node.js</span><span>·</span><span>PostgreSQL</span><span>·</span><span>Figma</span><span>·</span><span>Tailwind CSS</span><span>·</span><span>UI/UX</span><span>·</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p class="label">01 — About</p>
+            <h2 class="section-title">Small team energy,<br />senior-level craft.</h2>
+            <p>
+              I'm Hari, a developer and designer based in India. I turn rough ideas into
+              polished products — writing clean code, sweating the details, and keeping
+              the end user at the centre of every decision.
+            </p>
+            <p>
+              Over the last few years I've shipped dashboards, marketing sites, e-commerce
+              stores and internal tools. I care about performance, accessibility and
+              interfaces that feel effortless.
+            </p>
+
+            <ul class="skills" aria-label="Core skills">
+              <li>React &amp; Next.js</li>
+              <li>TypeScript</li>
+              <li>Node.js &amp; APIs</li>
+              <li>PostgreSQL</li>
+              <li>Tailwind CSS</li>
+              <li>Figma &amp; UI/UX</li>
+              <li>SEO &amp; Performance</li>
+              <li>Git &amp; CI/CD</li>
+            </ul>
+          </div>
+
+          <div class="stats reveal">
+            <div class="stat">
+              <span class="stat-num" data-count="4">4</span><span class="stat-suffix">+</span>
+              <p>Years of experience</p>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-count="30">30</span><span class="stat-suffix">+</span>
+              <p>Projects shipped</p>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-count="12">12</span><span class="stat-suffix">+</span>
+              <p>Happy clients</p>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-count="100">100</span><span class="stat-suffix">%</span>
+              <p>Coffee powered</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">02 — Services</p>
+          <h2 class="section-title">What I can do for you</h2>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <span class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-5 6 5 6M16 6l5 6-5 6M13.5 4l-3 16"/></svg>
+            </span>
+            <h3>Web Development</h3>
+            <p>Fast, responsive websites and web apps built with modern frameworks and clean, maintainable code.</p>
+            <ul class="service-list">
+              <li>React / Next.js</li>
+              <li>REST &amp; GraphQL APIs</li>
+              <li>Headless CMS</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <span class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 1 0 0 17c1.4 0 2-.9 2-1.9 0-1.5-1.3-1.8-1.3-3 0-.9.7-1.6 1.8-1.6h2.1a4.9 4.9 0 0 0 4.9-5C21.5 6 17.3 3.5 12 3.5Z"/><circle cx="7.6" cy="10.4" r="1.1" fill="currentColor" stroke="none"/><circle cx="11" cy="7.2" r="1.1" fill="currentColor" stroke="none"/><circle cx="15.4" cy="8.2" r="1.1" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <h3>UI / UX Design</h3>
+            <p>Interfaces designed in Figma and shipped with pixel-perfect attention to type, spacing and motion.</p>
+            <ul class="service-list">
+              <li>Wireframes &amp; prototypes</li>
+              <li>Design systems</li>
+              <li>Responsive layouts</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <span class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.5 4.5 13.5H11l-1 8 8.5-11H12l1-8Z"/></svg>
+            </span>
+            <h3>Performance &amp; SEO</h3>
+            <p>Audits and fixes that make pages load instantly, rank better and stay accessible to everyone.</p>
+            <ul class="service-list">
+              <li>Core Web Vitals</li>
+              <li>Technical SEO</li>
+              <li>Accessibility (WCAG)</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">03 — Selected work</p>
+          <h2 class="section-title">Projects I've built</h2>
+        </div>
+
+        <div class="work-grid">
+          <article class="project reveal">
+            <div class="project-thumb thumb-1" aria-hidden="true">
+              <span class="thumb-badge">SaaS</span>
+              <span class="thumb-orb"></span>
+            </div>
+            <div class="project-body">
+              <div class="project-head">
+                <h3>Nova Analytics</h3>
+                <span class="project-year">2026</span>
+              </div>
+              <p>A realtime analytics dashboard for product teams — custom charts, team workspaces and sub-second queries.</p>
+              <ul class="tags">
+                <li>React</li><li>TypeScript</li><li>D3</li><li>PostgreSQL</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-thumb thumb-2" aria-hidden="true">
+              <span class="thumb-badge">AI</span>
+              <span class="thumb-orb"></span>
+            </div>
+            <div class="project-body">
+              <div class="project-head">
+                <h3>Kavi</h3>
+                <span class="project-year">2025</span>
+              </div>
+              <p>An AI writing assistant for creators with a distraction-free editor, inline suggestions and version history.</p>
+              <ul class="tags">
+                <li>Next.js</li><li>Tailwind</li><li>OpenAI</li><li>Prisma</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-thumb thumb-3" aria-hidden="true">
+              <span class="thumb-badge">PWA</span>
+              <span class="thumb-orb"></span>
+            </div>
+            <div class="project-body">
+              <div class="project-head">
+                <h3>Trailhead</h3>
+                <span class="project-year">2025</span>
+              </div>
+              <p>An offline-first travel journal with photo sync, map pins and shareable trip pages. Installs in one tap.</p>
+              <ul class="tags">
+                <li>Vue</li><li>Firebase</li><li>Mapbox</li><li>PWA</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div class="contact-copy">
+            <p class="label">04 — Contact</p>
+            <h2 class="section-title">Let's build something<br />great together.</h2>
+            <p>
+              Have a project in mind, or just want to say hi? My inbox is always open —
+              I usually reply within a day.
+            </p>
+            <a class="mail-link" href="mailto:pandyaherry11@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+              pandyaherry11@gmail.com
+            </a>
+            <p class="location">
+              <span class="dot"></span> India · working worldwide (IST, UTC+5:30)
+            </p>
+          </div>
+
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              Send message
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <p class="form-hint">This opens your email app with the message pre-filled.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="#home" class="logo" aria-label="Back to top">
+        <span class="logo-mark">HP</span>
+        <span class="logo-text">haripandya<span class="logo-dot">.com</span></span>
+      </a>
+      <p class="copyright">© <span id="year">2026</span> Hari Pandya. Built from scratch.</p>
+      <a class="back-top" href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

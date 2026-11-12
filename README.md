@@ -1,0 +1,78 @@
+# haripandya.com
+
+Hari Pandya ka personal portfolio — plain HTML, CSS aur JavaScript. Koi framework,
+koi build step nahi. Bas file kholo aur chalao.
+
+## Files
+
+```
+index.html   → saara page content (sections, text, links)
+style.css    → design, layout, animations, light/dark theme
+script.js    → theme toggle, mobile menu, scroll animations, contact form
+```
+
+## Local pe kaise chalao
+
+Option 1 — file ko browser me kholo:
+
+```bash
+open index.html
+```
+
+Option 2 — local server (better, kyunki fonts aur paths sahi load hote hain):
+
+```bash
+python3 -m http.server 8000
+# phir kholo: http://localhost:8000
+```
+
+## Kya-kya edit karna hai
+
+| Kya badalna hai | Kahan |
+| --- | --- |
+| Naam, intro, tagline | `index.html` → hero section |
+| About text aur skills | `index.html` → `#about` |
+| Services | `index.html` → `#services` |
+| Projects (3 cards) | `index.html` → `#work` |
+| Email address | `index.html` + `script.js` (`pandyaherry11@gmail.com` ko replace karo) |
+| Social links | `index.html` → `.socials` me `href` |
+| Profile photo | `assets/hari-pandya.jpg` (replace karo, same naam rakho) |
+| Colors | `style.css` → `:root` me `--accent`, `--accent-2`, `--accent-3` |
+| Default theme | `script.js` → `initialTheme` (`"dark"` ya `"light"`) |
+
+Tip: email ko ek hi jagah rakhna ho to `pandyaherry11@gmail.com` ko dhoondh ke
+sab jagah apna address daal do (HTML me 2 jagah, JS me 1 jagah).
+
+## haripandya.com live kaise kare (free)
+
+### Netlify (sabse aasan)
+1. [netlify.com](https://netlify.com) pe account banao.
+2. `Default Project` folder ko Netlify ke "Deploy" area me **drag & drop** karo.
+3. Site live ho jayegi (jaise `hari-pandya.netlify.app`).
+4. **Domain settings → Add custom domain** → `haripandya.com` daalo.
+5. Netlify jo nameservers de, woh domain registrar (GoDaddy / Namecheap) me
+   daal do. DNS propagate hone me 10 min – 24 hours lag sakte hain.
+
+### Vercel
+1. [vercel.com](https://vercel.com) pe account banao.
+2. Project import karo (GitHub repo se ya folder upload karke).
+3. **Settings → Domains** me `haripandya.com` add karo aur DNS records follow karo.
+
+### GitHub Pages
+```bash
+git add .
+git commit -m "Add portfolio site"
+git remote add origin https://github.com/<username>/<repo>.git
+git push -u origin main
+```
+Phir repo → Settings → Pages → source `main` / root select karo.
+`CNAME` file banao jisme sirf `haripandya.com` likha ho, aur registrar me
+GitHub ke A records / CNAME set karo.
+
+## Note
+
+- Contact form backend nahi hai — submit karne pe user ka email app khulta hai
+  message pre-filled ke saath. Real backend chahiye to Formspree / Netlify Forms
+  use kar sakte hain.
+- Site fully responsive hai, light/dark theme support karti hai, aur
+  `prefers-reduced-motion` respect karti hai.
