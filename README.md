@@ -37,6 +37,7 @@ python3 -m http.server 8000
 | Email address | `index.html` + `script.js` (`pandyaherry11@gmail.com` ko replace karo) |
 | Social links | `index.html` → `.socials` me `href` |
 | Profile photo | `assets/hari-pandya.jpg` (replace karo, same naam rakho) |
+| Bhajan video | `assets/video/hanuman-chalisa.mp4` + poster `assets/video/hanuman-poster.jpg` |
 | Colors | `style.css` → `:root` me `--accent`, `--accent-2`, `--accent-3` |
 | Default theme | `script.js` → `initialTheme` (`"dark"` ya `"light"`) |
 

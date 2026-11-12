@@ -799,6 +799,68 @@ html[data-theme="light"] .portrait {
 }
 
 /* =========================================================
+   VIDEO / BHAJAN
+   ========================================================= */
+.section-sub {
+  color: var(--muted);
+  max-width: 56ch;
+  margin-top: -6px;
+}
+
+.video-card {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 26px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+.video-card:hover { border-color: var(--border-strong); }
+
+.video-player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  object-fit: contain;
+}
+
+.video-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 16px 22px;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.video-meta em { color: var(--text); font-style: normal; font-weight: 600; }
+.video-time {
+  font-family: "Sora", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.video-credit {
+  max-width: 900px;
+  margin: 14px auto 0;
+  font-size: 0.76rem;
+  color: var(--muted);
+  text-align: center;
+  padding: 0 8px;
+}
+.video-credit a { color: var(--accent-2); }
+.video-credit a:hover { text-decoration: underline; }
+
+/* =========================================================
    CONTACT
    ========================================================= */
 .contact-panel {
