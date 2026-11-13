@@ -184,8 +184,13 @@
     return valid;
   }
 
-  function wireMailtoForm(formEl, buildSubject) {
+  /* FormSubmit — submissions seedha inbox me aati hain, koi signup nahi.
+     Endpoint badalna ho to bas ye line update karo. */
+  const FORM_ENDPOINT = "https://formsubmit.co/ajax/pandyaherry11@gmail.com";
+
+  function wireForm(formEl, buildSubject) {
     if (!formEl) return;
+    const submitBtn = formEl.querySelector('button[type="submit"]');
 
     formEl.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -204,21 +209,59 @@
       }
 
       const serviceValue = service ? service.value : "";
-      const subject = encodeURIComponent(
-        buildSubject(serviceValue, name.value.trim())
-      );
-      const body = encodeURIComponent(
-        message.value.trim() +
-        "\n\n— " + name.value.trim() +
-        "\n" + email.value.trim() +
-        (serviceValue ? "\nService: " + serviceValue : "")
-      );
+      const subject = buildSubject(serviceValue, name.value.trim());
+      const payload = {
+        name: name.value.trim(),
+        email: email.value.trim(),
+        message: message.value.trim(),
+        _subject: subject,
+        _template: "table",
+        _captcha: "false",
+      };
+      if (serviceValue) payload.service = serviceValue;
 
-      window.location.href =
-        "mailto:pandyaherry11@gmail.com?subject=" + subject + "&body=" + body;
+      const originalBtn = submitBtn ? submitBtn.innerHTML : "";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
+      }
 
-      showToast("Opening your email app…");
-      formEl.reset();
+      fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error("Request failed: " + res.status);
+          return res.json();
+        })
+        .then(function () {
+          showToast("Sent! I'll reply within 24 hours. 🙏");
+          formEl.reset();
+        })
+        .catch(function () {
+          /* Agar online send fail ho jaye to email app fallback */
+          const mailSubject = encodeURIComponent(subject);
+          const body = encodeURIComponent(
+            message.value.trim() +
+            "\n\n— " + name.value.trim() +
+            "\n" + email.value.trim() +
+            (serviceValue ? "\nService: " + serviceValue : "")
+          );
+          window.location.href =
+            "mailto:pandyaherry11@gmail.com?subject=" +
+            mailSubject + "&body=" + body;
+          showToast("Couldn't send online — opening your email app instead.");
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtn;
+          }
+        });
     });
 
     formEl.querySelectorAll("input, textarea, select").forEach(function (field) {
@@ -231,11 +274,11 @@
     });
   }
 
-  wireMailtoForm(form, function (service, name) {
+  wireForm(form, function (service, name) {
     return "Project enquiry from " + name;
   });
 
-  wireMailtoForm(document.getElementById("apply-form"), function (service, name) {
+  wireForm(document.getElementById("apply-form"), function (service, name) {
     return "Application" + (service ? " — " + service : "") + " from " + name;
   });
 

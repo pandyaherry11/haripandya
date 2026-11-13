@@ -875,6 +875,16 @@ html[data-theme="light"] .portrait {
   text-align: center;
 }
 
+/* spam honeypot — humans ko nahi dikhta */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* ---------- application section ---------- */
 .apply-panel { grid-template-columns: 0.92fr 1.08fr; }
 .apply-copy p { color: var(--muted); max-width: 42ch; }
