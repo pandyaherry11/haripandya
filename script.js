@@ -170,49 +170,74 @@
     }, 3800);
   }
 
-  /* ---------- contact form (mailto handoff) ---------- */
-  if (form) {
-    form.addEventListener("submit", function (e) {
+  /* ---------- forms: validate fields + hand off to email app ---------- */
+  function markValidity(fields) {
+    let valid = true;
+    fields.forEach(function (field) {
+      const value = field.value.trim();
+      const emailOk =
+        field.type !== "email" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      const ok = value.length > 0 && emailOk;
+      field.classList.toggle("invalid", !ok);
+      if (!ok) valid = false;
+    });
+    return valid;
+  }
+
+  function wireMailtoForm(formEl, buildSubject) {
+    if (!formEl) return;
+
+    formEl.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const name = form.elements.namedItem("name");
-      const email = form.elements.namedItem("email");
-      const message = form.elements.namedItem("message");
-      let valid = true;
+      const name = formEl.elements.namedItem("name");
+      const email = formEl.elements.namedItem("email");
+      const message = formEl.elements.namedItem("message");
+      const service = formEl.elements.namedItem("service");
+      const fields = [name, email, message].concat(service ? [service] : []);
 
-      [name, email, message].forEach(function (field) {
-        const ok = field.value.trim().length > 0 &&
-          (field.type !== "email" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value));
-        field.classList.toggle("invalid", !ok);
-        if (!ok) valid = false;
-      });
-
-      if (!valid) {
+      if (!markValidity(fields)) {
         showToast("Please fill in all fields with a valid email.");
-        form.querySelector(".invalid").focus();
+        const firstInvalid = formEl.querySelector(".invalid");
+        if (firstInvalid) firstInvalid.focus();
         return;
       }
 
-      const subject = encodeURIComponent("Project enquiry from " + name.value.trim());
+      const serviceValue = service ? service.value : "";
+      const subject = encodeURIComponent(
+        buildSubject(serviceValue, name.value.trim())
+      );
       const body = encodeURIComponent(
         message.value.trim() +
         "\n\n— " + name.value.trim() +
-        "\n" + email.value.trim()
+        "\n" + email.value.trim() +
+        (serviceValue ? "\nService: " + serviceValue : "")
       );
 
       window.location.href =
         "mailto:pandyaherry11@gmail.com?subject=" + subject + "&body=" + body;
 
       showToast("Opening your email app…");
-      form.reset();
+      formEl.reset();
     });
 
-    form.querySelectorAll("input, textarea").forEach(function (field) {
+    formEl.querySelectorAll("input, textarea, select").forEach(function (field) {
       field.addEventListener("input", function () {
+        field.classList.remove("invalid");
+      });
+      field.addEventListener("change", function () {
         field.classList.remove("invalid");
       });
     });
   }
+
+  wireMailtoForm(form, function (service, name) {
+    return "Project enquiry from " + name;
+  });
+
+  wireMailtoForm(document.getElementById("apply-form"), function (service, name) {
+    return "Application" + (service ? " — " + service : "") + " from " + name;
+  });
 
   /* ---------- smooth scroll fallback for older browsers ---------- */
   if (!("scrollBehavior" in document.documentElement.style)) {

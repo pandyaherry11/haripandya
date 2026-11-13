@@ -39,7 +39,7 @@
       <nav class="nav" id="nav" aria-label="Main navigation">
         <a href="#about" class="nav-link">About</a>
         <a href="#services" class="nav-link">Services</a>
-        <a href="#work" class="nav-link">Work</a>
+        <a href="#apply" class="nav-link">Apply</a>
         <a href="#video" class="nav-link">Bhajan</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
@@ -87,8 +87,8 @@
           </p>
 
           <div class="cta">
-            <a href="#work" class="btn btn-primary">
-              View my work
+            <a href="#apply" class="btn btn-primary">
+              Apply now
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
@@ -258,65 +258,87 @@
       </div>
     </section>
 
-    <!-- ============ WORK ============ -->
-    <section class="section" id="work">
+    <!-- ============ APPLICATION ============ -->
+    <section class="section" id="apply">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="label">03 — Selected work</p>
-          <h2 class="section-title">Projects I've built</h2>
-        </div>
+        <div class="apply-panel reveal">
+          <div class="apply-copy">
+            <p class="label">03 — Application</p>
+            <h2 class="section-title">Let's work<br />together.</h2>
+            <p>
+              Tell me what you're building. Pick a service, share a few details,
+              and I'll reply within 24 hours with the next steps.
+            </p>
 
-        <div class="work-grid">
-          <article class="project reveal">
-            <div class="project-thumb thumb-1" aria-hidden="true">
-              <span class="thumb-badge">SaaS</span>
-              <span class="thumb-orb"></span>
-            </div>
-            <div class="project-body">
-              <div class="project-head">
-                <h3>Nova Analytics</h3>
-                <span class="project-year">2026</span>
-              </div>
-              <p>A realtime analytics dashboard for product teams — custom charts, team workspaces and sub-second queries.</p>
-              <ul class="tags">
-                <li>React</li><li>TypeScript</li><li>D3</li><li>PostgreSQL</li>
-              </ul>
-            </div>
-          </article>
+            <ul class="apply-points">
+              <li><span>1</span> Choose the service you need</li>
+              <li><span>2</span> Share your idea and timeline</li>
+              <li><span>3</span> Get a reply within 24 hours</li>
+            </ul>
 
-          <article class="project reveal">
-            <div class="project-thumb thumb-2" aria-hidden="true">
-              <span class="thumb-badge">AI</span>
-              <span class="thumb-orb"></span>
-            </div>
-            <div class="project-body">
-              <div class="project-head">
-                <h3>Kavi</h3>
-                <span class="project-year">2025</span>
-              </div>
-              <p>An AI writing assistant for creators with a distraction-free editor, inline suggestions and version history.</p>
-              <ul class="tags">
-                <li>Next.js</li><li>Tailwind</li><li>OpenAI</li><li>Prisma</li>
-              </ul>
-            </div>
-          </article>
+            <p class="apply-note">
+              Prefer email? Write to
+              <a href="mailto:pandyaherry11@gmail.com">pandyaherry11@gmail.com</a>
+            </p>
+          </div>
 
-          <article class="project reveal">
-            <div class="project-thumb thumb-3" aria-hidden="true">
-              <span class="thumb-badge">PWA</span>
-              <span class="thumb-orb"></span>
+          <form class="apply-form" id="apply-form" novalidate>
+            <div class="field">
+              <label for="apply-name">Full name</label>
+              <input
+                type="text"
+                id="apply-name"
+                name="name"
+                placeholder="Your full name"
+                required
+                autocomplete="name"
+              />
             </div>
-            <div class="project-body">
-              <div class="project-head">
-                <h3>Trailhead</h3>
-                <span class="project-year">2025</span>
-              </div>
-              <p>An offline-first travel journal with photo sync, map pins and shareable trip pages. Installs in one tap.</p>
-              <ul class="tags">
-                <li>Vue</li><li>Firebase</li><li>Mapbox</li><li>PWA</li>
-              </ul>
+
+            <div class="field">
+              <label for="apply-email">Email</label>
+              <input
+                type="email"
+                id="apply-email"
+                name="email"
+                placeholder="you@example.com"
+                required
+                autocomplete="email"
+              />
             </div>
-          </article>
+
+            <div class="field">
+              <label for="apply-service">Service you need</label>
+              <select id="apply-service" name="service" required>
+                <option value="" selected>Select a service…</option>
+                <option value="Website development">Website development</option>
+                <option value="Mobile app">Mobile app</option>
+                <option value="UI / UX design">UI / UX design</option>
+                <option value="SEO &amp; performance">SEO &amp; performance</option>
+                <option value="Something else">Something else</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="apply-message">Project details</label>
+              <textarea
+                id="apply-message"
+                name="message"
+                rows="4"
+                placeholder="What are you building? Timeline, budget, links…"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              Submit application
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </button>
+
+            <p class="form-hint">This opens your email app with everything pre-filled.</p>
+          </form>
         </div>
       </div>
     </section>

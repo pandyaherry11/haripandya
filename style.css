@@ -697,108 +697,6 @@ html[data-theme="light"] .portrait {
 }
 
 /* =========================================================
-   WORK
-   ========================================================= */
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.project {
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: var(--surface);
-  overflow: hidden;
-  transition: transform 0.35s var(--ease), border-color 0.3s ease, box-shadow 0.35s ease;
-}
-.project:hover {
-  transform: translateY(-8px);
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow);
-}
-
-.project-thumb {
-  position: relative;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 16px;
-}
-.project-thumb::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent 60%);
-}
-.thumb-1 { background: linear-gradient(135deg, #4c1d95, #7c3aed 45%, #06b6d4); }
-.thumb-2 { background: linear-gradient(135deg, #831843, #db2777 45%, #f59e0b); }
-.thumb-3 { background: linear-gradient(135deg, #064e3b, #059669 45%, #22d3ee); }
-
-.thumb-badge {
-  position: relative;
-  z-index: 2;
-  padding: 5px 12px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.32);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(8px);
-  color: #fff;
-  font-family: "Sora", sans-serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.thumb-orb {
-  position: absolute;
-  right: -16%;
-  bottom: -26%;
-  width: 78%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.55), transparent 55%);
-  transition: transform 0.6s var(--ease);
-}
-.project:hover .thumb-orb { transform: scale(1.12) translate(-6%, -4%); }
-
-.project-body { padding: 24px 22px 26px; }
-.project-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-.project-head h3 { font-size: 1.12rem; font-weight: 600; }
-.project-year {
-  font-family: "Sora", sans-serif;
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 0.08em;
-}
-.project-body > p {
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-bottom: 18px;
-}
-
-.tags { display: flex; flex-wrap: wrap; gap: 7px; }
-.tags li {
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: rgba(139, 92, 246, 0.08);
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: var(--muted);
-}
-
-/* =========================================================
    VIDEO / BHAJAN
    ========================================================= */
 .section-sub {
@@ -863,7 +761,8 @@ html[data-theme="light"] .portrait {
 /* =========================================================
    CONTACT
    ========================================================= */
-.contact-panel {
+.contact-panel,
+.apply-panel {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -877,7 +776,8 @@ html[data-theme="light"] .portrait {
     var(--bg-soft);
   overflow: hidden;
 }
-.contact-panel::before {
+.contact-panel::before,
+.apply-panel::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -939,22 +839,78 @@ html[data-theme="light"] .portrait {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   resize: vertical;
 }
+.field select {
+  width: 100%;
+  padding: 13px 42px 13px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239a9ab0' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.92rem;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
 .field input::placeholder,
 .field textarea::placeholder { color: var(--muted); opacity: 0.7; }
 .field input:focus,
-.field textarea:focus {
+.field textarea:focus,
+.field select:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.18);
 }
 .field input.invalid,
-.field textarea.invalid { border-color: #f87171; }
+.field textarea.invalid,
+.field select.invalid { border-color: #f87171; }
 
 .form-hint {
   font-size: 0.76rem;
   color: var(--muted);
   text-align: center;
 }
+
+/* ---------- application section ---------- */
+.apply-panel { grid-template-columns: 0.92fr 1.08fr; }
+.apply-copy p { color: var(--muted); max-width: 42ch; }
+
+.apply-points {
+  display: grid;
+  gap: 14px;
+  margin: 26px 0;
+}
+.apply-points li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.apply-points span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--text);
+  font-family: "Sora", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  flex: none;
+}
+
+.apply-note { font-size: 0.82rem; color: var(--muted); }
+.apply-note a { color: var(--accent-2); }
+.apply-note a:hover { text-decoration: underline; }
+
+.apply-form { display: grid; gap: 16px; align-content: start; }
 
 /* =========================================================
    FOOTER
@@ -1049,8 +1005,8 @@ html[data-theme="light"] .portrait {
   .orbit { width: min(340px, 76vw); }
   .about-grid { grid-template-columns: 1fr; gap: 44px; }
   .services-grid { grid-template-columns: 1fr; }
-  .work-grid { grid-template-columns: repeat(2, 1fr); }
-  .contact-panel { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
+  .contact-panel,
+  .apply-panel { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
 }
 
 @media (max-width: 780px) {
@@ -1083,7 +1039,6 @@ html[data-theme="light"] .portrait {
   .nav-link.active::after { display: none; }
   .nav-link.active { background: var(--surface); }
 
-  .work-grid { grid-template-columns: 1fr; }
   .stats { gap: 12px; }
   .stat { padding: 20px 18px; }
   .footer-inner { justify-content: center; text-align: center; }

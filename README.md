@@ -33,7 +33,7 @@ python3 -m http.server 8000
 | Naam, intro, tagline | `index.html` → hero section |
 | About text aur skills | `index.html` → `#about` |
 | Services | `index.html` → `#services` |
-| Projects (3 cards) | `index.html` → `#work` |
+| Application form | `index.html` → `#apply` (service dropdown options bhi wahin) |
 | Email address | `index.html` + `script.js` (`pandyaherry11@gmail.com` ko replace karo) |
 | Social links | `index.html` → `.socials` me `href` |
 | Profile photo | `assets/hari-pandya.jpg` (replace karo, same naam rakho) |
