@@ -3,3 +3,9 @@
 node_modules/
 .env
 .opencode/
+
+# Large media — never commit movies
+*.mkv
+*.avi
+*.mov
+assets/video/*.mkv
