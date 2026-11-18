@@ -1,6 +1,6 @@
 # haripandya.com
 
-**Live:** https://vyasurvi736-lang.github.io/haripandya/ (free GitHub Pages)
+**Live:** https://pandyaherry11.github.io/haripandya/ (free GitHub Pages)
 
 Hari Pandya ka personal portfolio — plain HTML, CSS aur JavaScript. Koi framework,
 koi build step nahi. Bas file kholo aur chalao.
