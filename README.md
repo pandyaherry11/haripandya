@@ -72,8 +72,8 @@ GitHub ke A records / CNAME set karo.
 
 ## Note
 
-- Contact form backend nahi hai — submit karne pe user ka email app khulta hai
-  message pre-filled ke saath. Real backend chahiye to Formspree / Netlify Forms
-  use kar sakte hain.
+- Dono forms FormSubmit se seedha `pandyaherry11@gmail.com` par jaate hain. Agar
+  online send fail ho jaye to email app fallback khulta hai. Endpoint `script.js`
+  me `FORM_ENDPOINT` par hai.
 - Site fully responsive hai, light/dark theme support karti hai, aur
   `prefers-reduced-motion` respect karti hai.
