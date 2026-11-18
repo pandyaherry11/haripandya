@@ -13,6 +13,7 @@ koi build step nahi. Bas file kholo aur chalao.
 
 ```
 index.html   → saara page content (sections, text, links)
+share.html   → URL + QR share page (application form me paste karne ke liye)
 style.css    → design, layout, animations, light/dark theme
 script.js    → theme toggle, mobile menu, scroll animations, contact form
 ```

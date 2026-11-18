@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Share Hari Pandya — Website Link &amp; QR</title>
+  <meta name="description" content="Official website link and QR code for Hari Pandya. Copy the URL or scan the QR to open the site." />
+  <meta name="theme-color" content="#08080c" />
+  <meta name="robots" content="noindex" />
+
+  <meta property="og:title" content="Hari Pandya — Official Website" />
+  <meta property="og:description" content="Copy the link or scan the QR code to open Hari Pandya's official website." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vyasurvi736-lang.github.io/haripandya/share.html" />
+  <meta property="og:image" content="https://vyasurvi736-lang.github.io/haripandya/assets/hari-pandya.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%238b5cf6'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='46' font-weight='bold' fill='white' text-anchor='middle'%3EHP%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="share-page">
+  <a class="skip-link" href="#share-main">Skip to content</a>
+
+  <header class="share-header">
+    <div class="container share-header-inner">
+      <a href="index.html" class="logo" aria-label="Hari Pandya — home">
+        <span class="logo-mark">HP</span>
+        <span class="logo-text">haripandya<span class="logo-dot">.com</span></span>
+      </a>
+      <a href="index.html" class="btn btn-ghost btn-sm">Open website</a>
+    </div>
+  </header>
+
+  <main class="share-main" id="share-main">
+    <span class="share-orb share-orb-1" aria-hidden="true"></span>
+    <span class="share-orb share-orb-2" aria-hidden="true"></span>
+
+    <div class="container">
+      <section class="share-card">
+        <p class="pill"><span class="dot"></span> Official website</p>
+
+        <h1 class="share-title">Hari <span class="grad">Pandya</span></h1>
+        <p class="share-sub">
+          Scan the QR or copy the link — paste it in any application, message or form.
+        </p>
+
+        <div class="share-url">
+          <label class="sr-only" for="site-url">Website URL</label>
+          <input id="site-url" type="text" value="https://vyasurvi736-lang.github.io/haripandya/" readonly />
+          <button class="btn btn-primary" id="copy-btn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="11" height="11" rx="2.5" />
+              <path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H16" />
+            </svg>
+            Copy
+          </button>
+        </div>
+
+        <figure class="share-qr">
+          <img
+            src="assets/qr-haripandya.png"
+            width="492"
+            height="492"
+            alt="QR code that opens the Hari Pandya website"
+            decoding="async"
+          />
+          <figcaption>Scan with your phone camera</figcaption>
+        </figure>
+
+        <div class="share-actions" aria-label="Share options">
+          <a class="share-btn" href="https://wa.me/?text=Hari%20Pandya%20%E2%80%94%20https%3A%2F%2Fvyasurvi736-lang.github.io%2Fharipandya%2F" target="_blank" rel="noopener">
+            WhatsApp
+          </a>
+          <a class="share-btn" href="mailto:?subject=Hari%20Pandya%20%E2%80%94%20Official%20Website&amp;body=https%3A%2F%2Fvyasurvi736-lang.github.io%2Fharipandya%2F">
+            Email
+          </a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fvyasurvi736-lang.github.io%2Fharipandya%2F&amp;text=Hari%20Pandya%20%E2%80%94%20Official%20Website" target="_blank" rel="noopener">
+            X (Twitter)
+          </a>
+          <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fvyasurvi736-lang.github.io%2Fharipandya%2F" target="_blank" rel="noopener">
+            LinkedIn
+          </a>
+        </div>
+
+        <a class="qr-download" href="assets/qr-haripandya.png" download="haripandya-qr.png">
+          Download QR image ↓
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="share-footer">
+    <div class="container share-footer-inner">
+      <p>© <span id="year">2026</span> Hari Pandya</p>
+      <a href="index.html">Back to website ↑</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const siteUrl = "https://vyasurvi736-lang.github.io/haripandya/";
+      const input = document.getElementById("site-url");
+      const copyBtn = document.getElementById("copy-btn");
+      const toast = document.getElementById("toast");
+      let toastTimer;
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const savedTheme = localStorage.getItem("hp-theme");
+      if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () {
+          toast.classList.remove("show");
+        }, 2200);
+      }
+
+      function fallbackCopy() {
+        input.removeAttribute("readonly");
+        input.select();
+        input.setSelectionRange(0, input.value.length);
+        let ok = false;
+        try {
+          ok = document.execCommand("copy");
+        } catch (err) {
+          ok = false;
+        }
+        input.setAttribute("readonly", "");
+        return ok;
+      }
+
+      copyBtn.addEventListener("click", function () {
+        const done = function () {
+          showToast("Link copied — ab kisi bhi form me paste karo.");
+          copyBtn.classList.add("copied");
+          setTimeout(function () { copyBtn.classList.remove("copied"); }, 1600);
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(siteUrl).then(done).catch(function () {
+            if (fallbackCopy()) done();
+            else showToast("Copy nahi hua — link manually select karo.");
+          });
+        } else if (fallbackCopy()) {
+          done();
+        } else {
+          showToast("Copy nahi hua — link manually select karo.");
+        }
+      });
+
+      input.addEventListener("focus", function () { input.select(); });
+    })();
+  </script>
+</body>
+</html>
