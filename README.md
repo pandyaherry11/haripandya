@@ -1,7 +1,13 @@
 # haripandya.com
 
+**Live:** https://vyasurvi736-lang.github.io/hari-pandya/ (free GitHub Pages)
+
 Hari Pandya ka personal portfolio — plain HTML, CSS aur JavaScript. Koi framework,
 koi build step nahi. Bas file kholo aur chalao.
+
+> Note: `haripandya.com` domain abhi kharida nahi gaya hai. Domain lene ke baad
+> `index.html` ke OG tags, `robots.txt` aur `sitemap.xml` me URL badalna hoga,
+> aur root me `CNAME` file (`haripandya.com`) wapas add karni hogi.
 
 ## Files
 

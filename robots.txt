@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://haripandya.com/sitemap.xml
+Sitemap: https://vyasurvi736-lang.github.io/hari-pandya/sitemap.xml
