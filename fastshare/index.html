@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FastShare — Mac / Windows / Android pe full speed file transfer</title>
+<meta name="description" content="FastShare — ek hi Wi-Fi pe Mac, Windows, Android, iPhone ke beech full speed file transfer. Koi cloud nahi, koi signup nahi. Sab kuch local network pe.">
+<meta name="theme-color" content="#0b0f19">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FastShare">
+<meta property="og:title" content="FastShare — full speed local file transfer">
+<meta property="og:description" content="Mac / Windows se iPhone, Android, PC pe full speed file bhejo. Sab kuch aapke local Wi-Fi pe.">
+<meta property="og:image" content="icon-512.png">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --bg:#0b0f19; --card:#121826; --card2:#171f33; --line:#222c44;
+  --text:#e8edf7; --muted:#8b9ab5; --accent:#6c8cff; --accent2:#a86cff;
+  --ok:#41d19b; --warn:#ffb347; --danger:#ff6b6b;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);
+  background-image:radial-gradient(900px 480px at 50% -15%,#182642 0%,rgba(11,15,25,0) 70%);
+  color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+  padding:0 16px 72px;
+}
+.wrap{max-width:820px;margin:0 auto}
+header{padding:52px 0 8px;text-align:center}
+.logo{
+  width:88px;height:88px;margin:0 auto 18px;border-radius:24px;
+  background:linear-gradient(140deg,#4d7cff,#8b5cf6 55%,#c084fc);
+  display:flex;align-items:center;justify-content:center;font-size:44px;
+  box-shadow:0 18px 50px rgba(109,124,255,.32);
+}
+h1{font-size:34px;line-height:1.15;margin:0 0 10px;letter-spacing:-.02em}
+.tag{color:var(--muted);font-size:17px;margin:0 auto;max-width:560px}
+.pillrow{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:20px 0 0}
+.pill{
+  font-size:12.5px;color:var(--muted);background:var(--card2);border:1px solid var(--line);
+  padding:5px 12px;border-radius:99px;
+}
+h2{font-size:20px;margin:44px 0 14px;letter-spacing:-.01em}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:14px;
+}
+.dl{display:flex;flex-direction:column;gap:14px}
+.plat{display:flex;align-items:center;gap:14px}
+.plat .ico{
+  width:52px;height:52px;flex:0 0 52px;border-radius:14px;background:var(--card2);
+  border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:26px;
+}
+.plat .txt{min-width:0;flex:1}
+.plat .txt b{display:block;font-size:16px}
+.plat .txt span{color:var(--muted);font-size:13px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{
+  font:inherit;font-size:14px;font-weight:600;border-radius:11px;border:1px solid var(--line);
+  background:var(--card2);color:var(--text);padding:10px 16px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:7px;cursor:pointer;transition:.15s;
+}
+.btn:hover{border-color:#334264}
+.btn:active{transform:scale(.97)}
+.btn.primary{background:linear-gradient(135deg,#4d7cff,#8b5cf6);border-color:transparent;color:#fff}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn[disabled]{opacity:.5;cursor:default}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{
+  counter-increment:s;position:relative;padding:0 0 18px 46px;color:var(--muted);font-size:15px;
+}
+.steps li:last-child{padding-bottom:0}
+.steps li::before{
+  content:counter(s);position:absolute;left:0;top:-2px;width:30px;height:30px;border-radius:50%;
+  background:var(--card2);border:1px solid var(--line);color:var(--accent);font-weight:700;font-size:14px;
+  display:flex;align-items:center;justify-content:center;
+}
+.steps li b{color:var(--text)}
+.note{
+  font-size:13.5px;color:var(--muted);background:var(--card2);border:1px solid var(--line);
+  border-left:3px solid var(--warn);border-radius:10px;padding:12px 14px;margin-top:12px;
+}
+.note b{color:var(--text)}
+.note code{
+  background:#0d1420;border:1px solid var(--line);border-radius:6px;padding:1px 6px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:var(--ok);
+}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+td{padding:9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{color:var(--muted);white-space:nowrap;padding-right:16px}
+.launcher{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.launcher input{
+  font:inherit;flex:1;min-width:200px;background:#0d1420;border:1px solid var(--line);
+  border-radius:11px;padding:11px 14px;color:var(--text);outline:none;
+}
+.launcher input:focus{border-color:var(--accent)}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+footer{text-align:center;color:var(--muted);font-size:13px;padding-top:34px}
+footer a{color:var(--accent);text-decoration:none}
+@media (min-width:680px){
+  .plat{flex-direction:row}
+  .plat + .btns{margin-left:66px}
+  .dl .row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="logo">⚡</div>
+  <h1>FastShare</h1>
+  <p class="tag">
+    Ek hi Wi-Fi pe Mac, Windows, Android aur iPhone ke beech <b>full speed</b> file transfer.
+    Koi cloud nahi, koi signup nahi, koi size limit nahi — sab kuch aapke local network pe.
+  </p>
+  <div class="pillrow">
+    <span class="pill">⚡ Wi-Fi ki poori speed</span>
+    <span class="pill">🔒 Internet pe kuch nahi jata</span>
+    <span class="pill">📦 Folder ZIP</span>
+    <span class="pill">🗂 Bade files</span>
+  </div>
+</header>
+
+<h2>Download</h2>
+
+<div class="card">
+  <div class="row">
+    <div class="plat">
+      <div class="ico">💻</div>
+      <div class="txt">
+        <b>macOS</b>
+        <span>macOS 14+ · Apple Silicon + Intel (universal)</span>
+      </div>
+    </div>
+    <div class="btns">
+      <a class="btn primary" href="https://github.com/pandyaherry11/haripandya/releases/latest/download/FastShare-macOS.dmg">⬇ Download .dmg</a>
+      <a class="btn" href="https://github.com/pandyaherry11/haripandya/releases/latest/download/FastShare-macOS.zip">.zip</a>
+    </div>
+  </div>
+  <div class="note">
+    <b>Pehli baar khulte waqt:</b> macOS "unidentified developer" bol sakta hai (app notarized nahi hai).
+    Fix: app pe <b>right-click → Open → Open</b>. Ya terminal me ek baar:
+    <code>xattr -dr com.apple.quarantine /Applications/FastShare.app</code>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row">
+    <div class="plat">
+      <div class="ico">🪟</div>
+      <div class="txt">
+        <b>Windows</b>
+        <span>Windows 10 / 11 · 64-bit · standalone (kuch install karne ki zarurat nahi)</span>
+      </div>
+    </div>
+    <div class="btns">
+      <a class="btn primary" href="https://github.com/pandyaherry11/haripandya/releases/latest/download/FastShare-Windows-x64.zip">⬇ Download .exe</a>
+    </div>
+  </div>
+  <div class="note">
+    <b>Pehli baar chalane par:</b> Windows Firewall ek prompt dikhayega —<b>"Allow access"</b> pe click karo
+    (private networks ke liye). Isse phone/PC connect kar payenge. Zip se nikaal kar <code>FastShare.exe</code> double-click karo.
+  </div>
+</div>
+
+<div class="card">
+  <div class="row">
+    <div class="plat">
+      <div class="ico">🤖</div>
+      <div class="txt">
+        <b>Android</b>
+        <span>App ki tarah install karo — icon + fullscreen, koi Play Store nahi</span>
+      </div>
+    </div>
+    <div class="btns">
+      <button class="btn primary" id="installBtn" disabled>⬇ Install app</button>
+    </div>
+  </div>
+  <div class="note">
+    <b>Install karne ka tarika:</b> is page ko Chrome me kholo → <b>⋮ menu → "Add to Home screen"</b> / <b>"Install app"</b>.
+    Icon home screen pe aa jayega aur fullscreen khulega.<br>
+    <span class="small">Agar button upar "Install app" nahi dikha raha, to menu wala tarika pakka kaam karta hai.</span>
+  </div>
+</div>
+
+<div class="card">
+  <div class="row">
+    <div class="plat">
+      <div class="ico">🍎</div>
+      <div class="txt">
+        <b>iPhone / iPad</b>
+        <span>Safari se — koi app install karne ki zarurat nahi</span>
+      </div>
+    </div>
+  </div>
+  <div class="note" style="border-left-color:var(--accent)">
+    Safari me host ka page kholo → <b>Share button → "Add to Home Screen"</b>.
+    Icon lag jayega aur app ki tarah khulega.
+  </div>
+</div>
+
+<h2>Kaise chalta hai</h2>
+<div class="card">
+  <ol class="steps">
+    <li><b>Ek device pe app chalao</b> — Mac pe <code>FastShare.app</code>, ya Windows pe <code>FastShare.exe</code>.
+        Ye "host" ban jata hai aur apna folder share karta hai.</li>
+    <li><b>Baaki sab usi Wi-Fi pe rakho</b> — aur kuch nahi karna.</li>
+    <li><b>Host ki screen ka QR scan karo</b> (ya link browser me kholo) — page khul jayega.</li>
+    <li><b>Transfer karo</b> — file/folder download karo, ya apne phone se file upload karo.
+        Dono taraf full speed, kyunki data seedha local Wi-Fi pe jata hai.</li>
+  </ol>
+</div>
+
+<h2>Apna host kholo</h2>
+<div class="card">
+  <p class="muted small" style="margin:0">
+    Is page se seedha host ke page pe jaane ke liye address daalo (jaise <code>192.168.1.5</code> ya <code>192.168.1.5:8080</code>).
+    Wahi address host app ki screen pe aur QR me dikhta hai.
+  </p>
+  <div class="launcher">
+    <input id="hostAddr" inputmode="url" autocomplete="off" placeholder="192.168.1.5:8080" aria-label="Host ka address">
+    <button class="btn primary" id="openHost">Kholo →</button>
+  </div>
+  <p class="muted small" style="margin:12px 0 0" id="lastHost"></p>
+</div>
+
+<h2>Details</h2>
+<div class="card">
+  <table>
+    <tr><td>Speed</td><td>Wi-Fi ki maximum speed. Data kabhi internet ya server pe nahi jata — device se device seedha.</td></tr>
+    <tr><td>Size limit</td><td>Koi limit nahi. Files streaming se jati hain, memory me poori load nahi hoti.</td></tr>
+    <tr><td>Folder</td><td>Folder pe tap karo → poora ZIP ban kar download ho jata hai (subfolders ke saath).</td></tr>
+    <tr><td>Upload</td><td>Phone/PC se host pe — drop-zone pe drag karo ya files chuno. Live speed + ETA dikhta hai.</td></tr>
+    <tr><td>Connected devices</td><td>Web page aur host app dono me live list — kaun juda hai, kaun kitna bhej/le raha hai.</td></tr>
+    <tr><td>Internet</td><td>Zarurat nahi. Sirf local Wi-Fi/hotspot hona chahiye, dono devices pe same network.</td></tr>
+    <tr><td>Security</td><td>Sharing sirf aapke network tak. Jo bhi us Wi-Fi pe hai woh connect kar sakta hai — public Wi-Fi pe dhyan rakho.</td></tr>
+  </table>
+</div>
+
+<footer>
+  FastShare · <a href="https://github.com/pandyaherry11/haripandya">GitHub</a> ·
+  <a href="../">Haripandya</a>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var $ = function(s){ return document.querySelector(s); };
+
+  // ---- Address launcher ----
+  var KEY = 'fastshare.host';
+  var input = $('#hostAddr');
+  var last = $('#lastHost');
+
+  function normalize(raw){
+    var v = String(raw || '').trim();
+    if(!v) return '';
+    v = v.replace(/^https?:\/\//i, '').replace(/\/+$/, '');
+    if(v.indexOf('/') >= 0) v = v.split('/')[0];
+    if(v.indexOf(':') < 0) v = v + ':8080';
+    return v;
+  }
+
+  function showLast(){
+    var saved = '';
+    try { saved = localStorage.getItem(KEY) || ''; } catch(e){}
+    if(saved){
+      last.textContent = 'Pichhli baar: ' + saved;
+      if(!input.value) input.value = saved;
+    } else {
+      last.textContent = '';
+    }
+  }
+
+  function openHost(){
+    var v = normalize(input.value);
+    if(!v) { input.focus(); return; }
+    try { localStorage.setItem(KEY, v); } catch(e){}
+    location.href = 'http://' + v + '/';
+  }
+
+  $('#openHost').addEventListener('click', openHost);
+  input.addEventListener('keydown', function(e){ if(e.key === 'Enter') openHost(); });
+  showLast();
+
+  // ---- PWA install ----
+  var deferred = null;
+  var installBtn = $('#installBtn');
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferred = e;
+    installBtn.disabled = false;
+    installBtn.textContent = '⬇ Install app';
+  });
+  installBtn.addEventListener('click', function(){
+    if(!deferred){ return; }
+    deferred.prompt();
+    deferred.userChoice.then(function(){ deferred = null; installBtn.disabled = true; });
+  });
+  window.addEventListener('appinstalled', function(){
+    installBtn.disabled = true;
+    installBtn.textContent = '✓ Installed';
+  });
+
+  // ---- Service worker (offline shell) ----
+  if('serviceWorker' in navigator){
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('sw.js').catch(function(){});
+    });
+  }
+})();
+</script>
+</body>
+</html>
