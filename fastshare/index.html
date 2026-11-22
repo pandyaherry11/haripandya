@@ -177,17 +177,20 @@ footer a{color:var(--accent);text-decoration:none}
       <div class="ico">🤖</div>
       <div class="txt">
         <b>Android</b>
-        <span>App ki tarah install karo — icon + fullscreen, koi Play Store nahi</span>
+        <span>APK · Android 7.0+ · 2.8 MB · koi Play Store nahi</span>
       </div>
     </div>
     <div class="btns">
-      <button class="btn primary" id="installBtn" disabled>⬇ Install app</button>
+      <a class="btn primary" href="https://github.com/pandyaherry11/haripandya/releases/latest/download/FastShare-Android.apk">⬇ Download APK</a>
+      <button class="btn" id="installBtn" hidden>⬇ Install web app</button>
     </div>
   </div>
   <div class="note">
-    <b>Install karne ka tarika:</b> is page ko Chrome me kholo → <b>⋮ menu → "Add to Home screen"</b> / <b>"Install app"</b>.
-    Icon home screen pe aa jayega aur fullscreen khulega.<br>
-    <span class="small">Agar button upar "Install app" nahi dikha raha, to menu wala tarika pakka kaam karta hai.</span>
+    <b>Install:</b> APK download karo → tap karke install karo. Android <b>"Install unknown apps"</b> ki permission maangega
+    (Settings me us browser/app ke liye allow karo) — ye normal hai, kyunki APK Play Store se nahi aata.<br><br>
+    <b>Phir:</b> app kholo → Mac/Windows ki screen ka <b>address type karo ya QR scan karo</b> → connect.
+    Uske baad <b>upload (phone → PC)</b> aur <b>download (PC → phone)</b> dono app ke andar hi honge,
+    aur download ki files phone ke <b>Downloads</b> folder me save hongi.
   </div>
 </div>
 
@@ -213,7 +216,8 @@ footer a{color:var(--accent);text-decoration:none}
     <li><b>Ek device pe app chalao</b> — Mac pe <code>FastShare.app</code>, ya Windows pe <code>FastShare.exe</code>.
         Ye "host" ban jata hai aur apna folder share karta hai.</li>
     <li><b>Baaki sab usi Wi-Fi pe rakho</b> — aur kuch nahi karna.</li>
-    <li><b>Host ki screen ka QR scan karo</b> (ya link browser me kholo) — page khul jayega.</li>
+    <li><b>Connect karo</b> — Android app me QR scan karo (ya address type karo), iPhone/PC pe browser me
+        host ka link kholo. Page/app khul jayega.</li>
     <li><b>Transfer karo</b> — file/folder download karo, ya apne phone se file upload karo.
         Dono taraf full speed, kyunki data seedha local Wi-Fi pe jata hai.</li>
   </ol>
@@ -299,17 +303,15 @@ footer a{color:var(--accent);text-decoration:none}
   window.addEventListener('beforeinstallprompt', function(e){
     e.preventDefault();
     deferred = e;
-    installBtn.disabled = false;
-    installBtn.textContent = '⬇ Install app';
+    installBtn.hidden = false;
   });
   installBtn.addEventListener('click', function(){
     if(!deferred){ return; }
     deferred.prompt();
-    deferred.userChoice.then(function(){ deferred = null; installBtn.disabled = true; });
+    deferred.userChoice.then(function(){ deferred = null; installBtn.hidden = true; });
   });
   window.addEventListener('appinstalled', function(){
-    installBtn.disabled = true;
-    installBtn.textContent = '✓ Installed';
+    installBtn.hidden = true;
   });
 
   // ---- Service worker (offline shell) ----
