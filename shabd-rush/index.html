@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<title>Shabd Rush — Hindi + English Word Quiz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0713">
+<meta name="description" content="Shabd Rush — ek fast Hindi + English word quiz. 15 second per sawaal, streak bonus, 50:50 lifeline. Offline chalta hai.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Shabd Rush">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow" aria-hidden="true">
+  <span class="glow__a"></span><span class="glow__b"></span>
+</div>
+
+<main class="app">
+
+  <!-- ================= HOME ================= -->
+  <section id="home" class="screen active" aria-label="Home">
+    <header class="brand">
+      <div class="brand__mark" aria-hidden="true">अ</div>
+      <h1>Shabd<span>Rush</span></h1>
+      <p class="tag">हिंदी + English word quiz · 15s per sawaal</p>
+    </header>
+
+    <div class="stats card">
+      <div class="stat"><span class="lbl">Best score</span><strong id="bestScore">0</strong></div>
+      <div class="stat"><span class="lbl">Games</span><strong id="gamesPlayed">0</strong></div>
+      <div class="stat"><span class="lbl">Accuracy</span><strong id="bestAcc">—</strong></div>
+    </div>
+
+    <div class="modes" role="group" aria-label="Topic chuno">
+      <button class="chip is-on" data-mode="all" aria-pressed="true">Sab</button>
+      <button class="chip" data-mode="hindi" aria-pressed="false">हिंदी</button>
+      <button class="chip" data-mode="english" aria-pressed="false">English</button>
+    </div>
+
+    <button id="playBtn" class="btn btn--play">
+      <span>Khelna shuru karo</span>
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <p class="hint" id="installHint">
+      iPhone pe: <b>Share</b> → <b>Add to Home Screen</b> — phir fullscreen app jaisa khulega.
+    </p>
+
+    <footer class="foot">
+      <button id="soundBtn" class="iconbtn" aria-label="Sound on/off" aria-pressed="true">🔊</button>
+      <span class="foot__txt">One-hand play · offline ready</span>
+    </footer>
+  </section>
+
+  <!-- ================= GAME ================= -->
+  <section id="game" class="screen" aria-label="Quiz">
+    <div class="topbar">
+      <button id="quitBtn" class="iconbtn iconbtn--sm" aria-label="Game chhodo">✕</button>
+      <div class="progress" id="progress" aria-hidden="true"></div>
+      <div class="scorepill"><span id="score">0</span></div>
+    </div>
+
+    <div class="timer" aria-hidden="true"><div class="timer__fill" id="timerFill"></div></div>
+
+    <div class="hud">
+      <span class="streak" id="streak">🔥 <b>0</b> streak</span>
+      <span class="mult" id="mult">×1</span>
+    </div>
+
+    <div class="qcard card" id="qcard">
+      <span class="tagpill" id="qtag">—</span>
+      <h2 class="qtext" id="qtext">—</h2>
+    </div>
+
+    <div class="options" id="options"></div>
+
+    <p class="why" id="why" hidden></p>
+
+    <div class="gamefoot">
+      <button id="fiftyBtn" class="btn btn--ghost btn--fifty">50:50 <span class="badge" id="fiftyBadge">1</span></button>
+      <button id="nextBtn" class="btn btn--primary" hidden>Aage →</button>
+    </div>
+  </section>
+
+  <!-- ================= RESULT ================= -->
+  <section id="result" class="screen" aria-label="Result">
+    <div class="reshead">
+      <p class="eyebrow" id="resEyebrow">Run complete</p>
+      <div class="bigscore" id="resScore">0</div>
+      <p class="resmsg" id="resMsg">—</p>
+    </div>
+
+    <div class="stats card">
+      <div class="stat"><span class="lbl">Sahi</span><strong id="resCorrect">0/12</strong></div>
+      <div class="stat"><span class="lbl">Accuracy</span><strong id="resAcc">0%</strong></div>
+      <div class="stat"><span class="lbl">Best streak</span><strong id="resStreak">0</strong></div>
+      <div class="stat"><span class="lbl">Best score</span><strong id="resBest">0</strong></div>
+    </div>
+
+    <details class="review card" id="reviewWrap">
+      <summary>Galtiyan dekho <span class="revcount" id="revCount"></span></summary>
+      <ul id="reviewList"></ul>
+    </details>
+
+    <button id="againBtn" class="btn btn--play">
+      <span>Phir se khelo</span>
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 12a8 8 0 1 1 2.6 5.9M4 19v-5h5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button id="shareBtn" class="btn btn--ghost">Score share karo</button>
+    <button id="homeBtn" class="linkbtn">Home</button>
+  </section>
+
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<noscript><p style="color:#fff;padding:24px;font-family:system-ui">Is game ke liye JavaScript on karna padega.</p></noscript>
+
+<script src="questions.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
