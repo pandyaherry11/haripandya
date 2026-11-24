@@ -789,10 +789,12 @@ html[data-theme="light"] .portrait {
 .app-info p { color: var(--muted); font-size: 0.9rem; margin-top: 5px; }
 .app-info .app-note { font-size: 0.8rem; opacity: 0.9; max-width: 56ch; }
 
+.app-downloads { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .app-download { flex: none; }
 
 @media (max-width: 640px) {
   .app-card { padding: 20px 18px; }
+  .app-downloads { flex-direction: column; width: 100%; }
   .app-download { width: 100%; justify-content: center; }
 }
 
